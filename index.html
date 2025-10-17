@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHECKPOINT 2 — DEBOYS</title>
+  <style>
+    body {
+      background: radial-gradient(circle at top, #080808, #000);
+      color: #fff;
+      font-family: "Courier New", monospace;
+      text-align: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 2em;
+      letter-spacing: 2px;
+      color: #ff0077;
+      text-shadow: 0 0 15px #ff0077;
+      margin-bottom: 30px;
+    }
+
+    button {
+      background: transparent;
+      border: 2px solid #ff0077;
+      color: #ff0077;
+      padding: 12px 40px;
+      border-radius: 10px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #ff0077;
+      color: #fff;
+      box-shadow: 0 0 15px #ff0077;
+    }
+
+    p {
+      margin-top: 25px;
+      font-size: 1em;
+      color: #bbb;
+    }
+  </style>
+</head>
+<body>
+  <h1>CHECKPOINT 2 — DEBOYS</h1>
+  <button id="openBtn">OPEN</button>
+  <p id="statusText"></p>
+
+  <script>
+    const btn = document.getElementById("openBtn");
+    const status = document.getElementById("statusText");
+    let waiting = false;
+
+    btn.addEventListener("click", () => {
+      if (waiting) return;
+      waiting = true;
+      btn.disabled = true;
+      btn.textContent = "PLEASE WAIT...";
+      status.textContent = "Wait 10 seconds...";
+      setTimeout(() => {
+        btn.textContent = "LINKS";
+        btn.disabled = false;
+        waiting = false;
+        btn.onclick = () => {
+          window.location.href = "https://www.mediafire.com/file/4y2szxm2w6xm7bw/checkpoint+2+.txt/file";
+        };
+        status.textContent = "Ready!";
+      }, 10000);
+    });
+  </script>
+</body>
+</html>
